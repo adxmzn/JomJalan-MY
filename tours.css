@@ -1,0 +1,120 @@
+/* ==========================================
+   JOMJALAN MALAYSIA
+   LIVE TOURS PANEL - MIDNIGHT SAGE
+========================================== */
+
+.live-tours-section {
+  margin-top: 24px;
+  padding-top: 22px;
+  border-top: 1px solid #304738;
+}
+
+.live-tours-section h3 {
+  color: #f0f5ee;
+  font-size: 17px;
+  margin-bottom: 9px;
+}
+
+.live-tours-intro {
+  color: #afc1b0;
+  font-size: 12px;
+  line-height: 1.7;
+  margin-bottom: 15px;
+}
+
+.live-tours-status {
+  padding: 15px;
+  border: 1px solid #304738;
+  border-radius: 9px;
+  background: #1b2b21;
+  color: #b5c9b5;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.live-tours-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.live-tour-card {
+  padding: 16px;
+  border: 1px solid #344d39;
+  border-radius: 11px;
+  background: #1b2b21;
+
+  transition:
+    border-color 0.2s,
+    transform 0.2s;
+}
+
+.live-tour-card:hover {
+  border-color: #84a68a;
+  transform: translateY(-2px);
+}
+
+.live-tour-kind {
+  display: inline-block;
+  margin-bottom: 9px;
+  color: #c9dec3;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.live-tour-card h4 {
+  margin-bottom: 9px;
+  color: #f2f8ef;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.live-tour-card p {
+  margin-bottom: 12px;
+  color: #adbfaf;
+  font-size: 11px;
+  line-height: 1.75;
+}
+
+.live-tour-price {
+  display: block;
+  margin-bottom: 12px;
+  color: #d4e5ca;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.live-tour-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 9px 13px;
+  border-radius: 8px;
+
+  background: #b4cfae;
+  color: #14251a;
+
+  text-decoration: none;
+  font-size: 11px;
+  font-weight: 750;
+
+  transition:
+    background 0.2s,
+    transform 0.2s;
+}
+
+.live-tour-link:hover {
+  background: #d4e5ca;
+  transform: translateY(-1px);
+}
+
+.live-tours-credit {
+  display: block;
+  margin-top: 14px;
+  color: #899f8e;
+  font-size: 10px;
+  line-height: 1.7;
+}

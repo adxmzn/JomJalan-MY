@@ -1,0 +1,1901 @@
+/* ==============================================
+   JOMJALAN MALAYSIA
+   MIDNIGHT SAGE — CLEAN PREMIUM EDITION
+   COMPLETE STYLE.CSS
+============================================== */
+
+
+/* ==============================================
+   01. DESIGN SYSTEM
+============================================== */
+
+:root {
+  --bg: #0b1410;
+  --app: #101b15;
+
+  --sidebar: #14231a;
+  --surface: #19291f;
+  --surface-soft: #203329;
+  --input: #15251c;
+
+  --line: #304738;
+  --line-soft: rgba(185, 211, 181, 0.11);
+
+  --text: #f0f5ee;
+  --muted: #afc1b0;
+  --subtle: #899f8e;
+
+  --sage: #b4cfae;
+  --sage-bright: #d4e5ca;
+  --sage-dark: #14251a;
+
+  --danger: #eeb9af;
+
+  --radius: 14px;
+  --shadow: 0 14px 34px rgba(0, 0, 0, 0.22);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+
+  font: 13px/1.6 "Segoe UI", Arial, sans-serif;
+
+  color: var(--text);
+
+  background:
+    radial-gradient(
+      ellipse at 10% 0%,
+      #253e2c 0%,
+      transparent 45%
+    ),
+    radial-gradient(
+      ellipse at 95% 100%,
+      #1b3223 0%,
+      transparent 45%
+    ),
+    var(--bg);
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+a {
+  color: inherit;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+:focus-visible {
+  outline: 2px solid var(--sage);
+  outline-offset: 3px;
+}
+
+::selection {
+  background: #6f9976;
+  color: #ffffff;
+}
+
+
+/* ==============================================
+   02. MAIN APP + HEADER
+============================================== */
+
+.app {
+  width: min(1220px, calc(100% - 36px));
+  min-height: calc(100vh - 36px);
+
+  margin: 18px auto;
+
+  overflow: hidden;
+
+  background: var(--app);
+
+  border: 1px solid var(--line-soft);
+  border-radius: 18px;
+
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.34);
+}
+
+.header {
+  min-height: 79px;
+
+  padding: 14px 32px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 22px;
+
+  background: #142219;
+
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.logo {
+  flex-shrink: 0;
+}
+
+.logo h2 {
+  color: #f6f8f3;
+
+  font-size: 26px;
+  font-weight: 800;
+
+  line-height: 1.08;
+  letter-spacing: -1.3px;
+}
+
+.logo h2 span {
+  color: var(--sage);
+}
+
+.logo small {
+  display: block;
+
+  margin-top: 6px;
+
+  color: var(--subtle);
+
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+
+/* ==============================================
+   03. TOP NAVIGATION
+============================================== */
+
+.header nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 30px;
+}
+
+.header nav button {
+  position: relative;
+
+  padding: 10px 2px;
+
+  border: 0;
+
+  background: transparent;
+
+  color: var(--muted);
+
+  font-size: 12px;
+  font-weight: 600;
+
+  transition: color 0.2s ease;
+}
+
+.header nav button:hover,
+.header nav button.active {
+  color: var(--text);
+}
+
+.header nav button.active::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  bottom: 1px;
+
+  height: 2px;
+
+  border-radius: 99px;
+
+  background: var(--sage);
+}
+
+.country {
+  flex-shrink: 0;
+
+  color: var(--sage);
+
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2.4px;
+}
+
+
+/* ==============================================
+   04. EXPLORE PAGE LAYOUT
+============================================== */
+
+.layout {
+  display: grid;
+
+  grid-template-columns:
+    236px minmax(0, 1fr);
+
+  min-height: 720px;
+}
+
+
+/* ==============================================
+   05. LEFT SIDEBAR
+============================================== */
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+
+  padding: 34px 23px 26px;
+
+  background: linear-gradient(
+    165deg,
+    #16271d,
+    #101d16
+  );
+
+  border-right: 1px solid var(--line-soft);
+}
+
+.sidebar h3 {
+  color: var(--text);
+
+  font-size: 16px;
+  font-weight: 750;
+
+  margin-bottom: 4px;
+}
+
+.sidebar > p {
+  color: var(--subtle);
+
+  font-size: 12px;
+
+  margin-bottom: 30px;
+}
+
+.sidebar label,
+.budget-section label,
+#planForm label {
+  display: block;
+
+  margin: 0 0 9px;
+
+  color: #dce8da;
+
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.sidebar select {
+  margin-bottom: 23px;
+}
+
+
+/* ==============================================
+   06. SIDEBAR TRAVEL TIP
+============================================== */
+
+.sidebar-note {
+  margin-top: 18px;
+
+  padding: 17px;
+
+  border: 1px solid var(--line-soft);
+  border-radius: 12px;
+
+  background: rgba(180, 207, 174, 0.07);
+}
+
+.sidebar-note strong {
+  color: var(--sage-bright);
+
+  font-size: 12px;
+}
+
+.sidebar-note p {
+  margin-top: 6px;
+
+  color: var(--muted);
+
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+
+/* ==============================================
+   07. SIDEBAR FOOTER
+============================================== */
+
+.sidebar-footer {
+  margin-top: auto;
+
+  padding-top: 42px;
+
+  text-align: center;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+
+  gap: 11px;
+
+  margin-bottom: 16px;
+}
+
+.social-icon {
+  width: 38px;
+  height: 38px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+
+  border: 1px solid #3d5a45;
+
+  background: #233b2b;
+  color: #e2eee0;
+
+  text-decoration: none;
+
+  transition:
+    background 0.2s,
+    color 0.2s,
+    transform 0.2s;
+}
+
+.social-icon:hover {
+  background: var(--sage);
+
+  color: var(--sage-dark);
+
+  transform: translateY(-3px);
+}
+
+.social-icon svg {
+  display: block;
+}
+
+.copyright-text {
+  color: var(--subtle);
+
+  font-size: 10px;
+  letter-spacing: 0.5px;
+  line-height: 1.9;
+}
+
+.copyright-text span {
+  display: block;
+}
+
+.copyright-name {
+  color: var(--sage-bright);
+
+  font-size: 11px;
+  font-weight: 750;
+
+  letter-spacing: 1.1px;
+}
+
+
+/* ==============================================
+   08. SHARED INPUTS AND SELECTS
+============================================== */
+
+.sidebar select,
+#searchInput,
+.budget-section input,
+.budget-section select,
+#planForm input,
+#planForm select,
+#planForm textarea {
+  display: block;
+
+  width: 100%;
+  min-width: 0;
+
+  padding: 11px 13px;
+
+  background: var(--input);
+  color: var(--text);
+
+  border: 1px solid #36513c;
+  border-radius: 9px;
+
+  color-scheme: dark;
+
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
+}
+
+.sidebar select:hover,
+#searchInput:hover,
+.budget-section input:hover,
+.budget-section select:hover,
+#planForm input:hover,
+#planForm select:hover,
+#planForm textarea:hover {
+  border-color: #5b7a60;
+}
+
+.sidebar select:focus,
+#searchInput:focus,
+.budget-section input:focus,
+.budget-section select:focus,
+#planForm input:focus,
+#planForm select:focus,
+#planForm textarea:focus {
+  outline: none;
+
+  border-color: var(--sage);
+
+  box-shadow:
+    0 0 0 3px rgba(180, 207, 174, 0.1);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #91a595;
+}
+
+select option {
+  background: #18271e;
+  color: var(--text);
+}
+
+
+/* ==============================================
+   09. SHARED BUTTONS
+============================================== */
+
+.details-btn,
+.calculate-btn,
+#savePlanBtn,
+.edit-plan-btn,
+.attraction-link {
+  border: 0;
+  border-radius: 9px;
+
+  background: var(--sage);
+  color: var(--sage-dark);
+
+  font-weight: 750;
+  text-decoration: none;
+
+  transition:
+    background 0.2s,
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+
+.details-btn:hover,
+.calculate-btn:hover,
+#savePlanBtn:hover,
+.edit-plan-btn:hover,
+.attraction-link:hover {
+  background: var(--sage-bright);
+
+  box-shadow:
+    0 7px 16px rgba(0, 0, 0, 0.14);
+}
+
+.details-btn:active,
+.calculate-btn:active,
+#savePlanBtn:active,
+.edit-plan-btn:active,
+.delete-plan-btn:active {
+  transform: translateY(1px);
+}
+
+
+/* ==============================================
+   10. MAIN EXPLORE CONTENT
+============================================== */
+
+.content {
+  min-width: 0;
+
+  padding: 31px 32px 50px;
+
+  background: #101b15;
+}
+
+
+/* ==============================================
+   11. CINEMATIC HERO SLIDER
+============================================== */
+
+.hero-slider {
+  position: relative;
+
+  width: 100%;
+  height: 295px;
+
+  overflow: hidden;
+  isolation: isolate;
+
+  border-radius: 15px;
+
+  background: #203427;
+
+  border: 1px solid var(--line-soft);
+
+  box-shadow: var(--shadow);
+}
+
+.hero-slider .hero-slider-track {
+  position: relative;
+
+  display: flex;
+
+  width: 100%;
+  height: 100%;
+
+  will-change: transform;
+
+  transition:
+    transform 0.65s cubic-bezier(
+      0.22,
+      1,
+      0.36,
+      1
+    );
+}
+
+/* Horizontal sliding layout */
+
+.hero-slider .hero-slide,
+.hero-slider .hero-slide.active {
+  position: relative;
+
+  flex: 0 0 100%;
+
+  min-width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+
+  opacity: 1;
+  visibility: visible;
+}
+
+.hero-slider .hero-slide img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+
+  user-select: none;
+}
+
+/* Cinematic image overlay */
+
+.hero-slider .hero-slide::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  z-index: 1;
+  pointer-events: none;
+
+  background: linear-gradient(
+    90deg,
+    rgba(7, 18, 10, 0.8),
+    rgba(7, 18, 10, 0.3) 60%,
+    rgba(7, 18, 10, 0.04)
+  );
+}
+
+
+/* ==============================================
+   12. BANNER CAPTIONS
+============================================== */
+
+.hero-slider .hero-caption {
+  position: absolute;
+
+  left: 37px;
+  bottom: 38px;
+
+  z-index: 2;
+
+  max-width: 78%;
+
+  text-align: left;
+  color: #ffffff;
+}
+
+.hero-slider .hero-caption span {
+  display: block;
+
+  margin-bottom: 9px;
+
+  color: #d1e6d0;
+
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: 2px;
+}
+
+.hero-slider .hero-caption h2 {
+  margin-bottom: 8px;
+
+  font-size: clamp(22px, 2.8vw, 32px);
+
+  line-height: 1.2;
+  font-weight: 800;
+
+  letter-spacing: -0.7px;
+
+  text-shadow:
+    0 4px 18px rgba(0, 0, 0, 0.35);
+}
+
+.hero-slider .hero-caption p {
+  font-size: 12px;
+
+  color: #eef6ed;
+
+  line-height: 1.6;
+}
+
+/* Hide arrows and dots.
+   JavaScript autoplay still works. */
+
+.hero-slider .hero-arrow,
+.hero-slider .hero-dots {
+  display: none !important;
+}
+
+
+/* ==============================================
+   13. POPULAR DESTINATIONS HEADER
+============================================== */
+
+.destinations {
+  margin-top: 37px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  gap: 20px;
+}
+
+.eyebrow {
+  display: inline-block;
+
+  color: var(--sage);
+
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: 2px;
+}
+
+.section-header h2 {
+  margin-top: 6px;
+
+  font-size: 23px;
+  line-height: 1.3;
+
+  letter-spacing: -0.5px;
+
+  color: var(--text);
+}
+
+#searchInput {
+  max-width: 225px;
+  font-size: 12px;
+}
+
+#resultCount {
+  margin: 12px 0 19px;
+
+  color: var(--subtle);
+
+  font-size: 11px;
+}
+
+#noResults {
+  padding: 30px 20px;
+
+  border: 1px solid var(--line-soft);
+  border-radius: 10px;
+
+  color: var(--muted);
+
+  text-align: center;
+
+  background: var(--surface);
+}
+
+
+/* ==============================================
+   14. DESTINATION CARD GRID
+============================================== */
+
+.card-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  align-items: stretch;
+
+  gap: 17px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+
+  min-width: 0;
+  height: 100%;
+
+  overflow: hidden;
+
+  background: var(--surface);
+
+  border: 1px solid var(--line-soft);
+  border-radius: 12px;
+
+  transition:
+    transform 0.25s,
+    border-color 0.25s,
+    box-shadow 0.25s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+
+  border-color: #65866b;
+
+  box-shadow: var(--shadow);
+}
+
+.card img {
+  display: block;
+
+  width: 100%;
+  height: 165px;
+
+  object-fit: cover;
+
+  background: var(--surface-soft);
+
+  transition: transform 0.45s;
+}
+
+.card:hover img {
+  transform: scale(1.035);
+}
+
+.card-info {
+  position: relative;
+
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+
+  padding: 17px;
+
+  background: var(--surface);
+}
+
+.card-info small {
+  color: var(--sage);
+
+  font-size: 9px;
+  font-weight: 750;
+  letter-spacing: 1px;
+}
+
+.card-info h3 {
+  color: var(--text);
+
+  font-size: 16px;
+  line-height: 1.35;
+
+  margin: 9px 0;
+}
+
+.card-info p {
+  flex: 1;
+
+  font-size: 11px;
+  line-height: 1.7;
+
+  color: var(--muted);
+}
+
+.details-btn {
+  width: 100%;
+
+  margin-top: 17px;
+  padding: 11px 13px;
+
+  font-size: 12px;
+}
+
+
+/* ==============================================
+   15. MODAL OVERLAY
+============================================== */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+
+  z-index: 1000;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 18px;
+
+  background: rgba(3, 11, 6, 0.78);
+
+  backdrop-filter: blur(9px);
+}
+
+.details-modal {
+  position: relative;
+
+  width: 540px;
+  max-width: 100%;
+
+  max-height: 90vh;
+
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  background: #15231a;
+
+  border: 1px solid #38513d;
+  border-radius: 16px;
+
+  box-shadow:
+    0 28px 75px rgba(0, 0, 0, 0.5);
+
+  scrollbar-width: thin;
+  scrollbar-color: #5a765e #15231a;
+}
+
+
+/* ==============================================
+   16. MODAL SCROLLBAR
+============================================== */
+
+.details-modal::-webkit-scrollbar {
+  width: 7px;
+}
+
+.details-modal::-webkit-scrollbar-track {
+  background: #15231a;
+}
+
+.details-modal::-webkit-scrollbar-thumb {
+  background: #5a765e;
+  border-radius: 10px;
+}
+
+
+/* ==============================================
+   17. CLOSE MODAL BUTTON
+============================================== */
+
+.close-modal {
+  position: absolute;
+
+  top: 14px;
+  right: 14px;
+
+  z-index: 4;
+
+  display: grid;
+  place-items: center;
+
+  width: 36px;
+  height: 36px;
+
+  border: 0;
+  border-radius: 50%;
+
+  background: rgba(243, 249, 240, 0.95);
+
+  color: #193321;
+
+  font-size: 26px;
+  line-height: 1;
+}
+
+.close-modal:hover {
+  background: #ffffff;
+}
+
+
+/* ==============================================
+   18. MODAL IMAGE AND DESCRIPTION
+============================================== */
+
+.modal-image {
+  display: block;
+
+  width: 100%;
+  height: 230px;
+
+  object-fit: cover;
+
+  background: var(--surface-soft);
+}
+
+.modal-content {
+  padding: 26px 28px 30px;
+}
+
+.modal-content > small {
+  color: var(--sage);
+
+  font-size: 10px;
+  font-weight: 700;
+
+  letter-spacing: 1px;
+}
+
+.modal-content h2 {
+  margin: 9px 0 10px;
+
+  color: var(--text);
+
+  font-size: 25px;
+  line-height: 1.3;
+}
+
+.modal-content > p {
+  color: var(--muted);
+
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+
+/* ==============================================
+   19. MODAL SECTION HEADINGS
+============================================== */
+
+.weather-section,
+.activity-section,
+.attractions-section,
+.budget-section {
+  margin-top: 23px;
+  padding-top: 22px;
+
+  border-top: 1px solid var(--line);
+}
+
+.weather-section h3,
+.activity-section h3,
+.attractions-section h3,
+.budget-section h3 {
+  margin-bottom: 11px;
+
+  color: var(--text);
+
+  font-size: 17px;
+}
+
+#weatherStatus,
+#activityReason,
+.attractions-intro,
+#attractionsStatus,
+.budget-note {
+  color: var(--muted);
+
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+
+/* ==============================================
+   20. WEATHER GRID
+============================================== */
+
+.weather-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 10px;
+}
+
+.weather-box {
+  padding: 15px 8px;
+
+  text-align: center;
+
+  border-radius: 10px;
+
+  background: var(--surface-soft);
+
+  border: 1px solid var(--line-soft);
+}
+
+.weather-box span {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: var(--muted);
+
+  font-size: 10px;
+}
+
+.weather-box strong {
+  display: block;
+
+  color: var(--sage-bright);
+
+  font-size: 16px;
+  font-weight: 800;
+}
+
+#weatherCondition {
+  margin-top: 13px;
+
+  color: var(--sage-bright);
+
+  font-size: 12px;
+  font-weight: 650;
+}
+
+
+/* ==============================================
+   21. WEATHER CREDITS
+============================================== */
+
+.weather-credit,
+.activity-note,
+.attractions-credit {
+  display: block;
+
+  margin-top: 14px;
+
+  color: var(--subtle);
+
+  font-size: 10px;
+  letter-spacing: 0;
+
+  line-height: 1.6;
+}
+
+
+/* ==============================================
+   22. WEATHER ACTIVITY SUGGESTIONS
+============================================== */
+
+#activityReason {
+  margin-bottom: 13px;
+}
+
+#activityList {
+  list-style: none;
+}
+
+#activityList li {
+  margin-bottom: 9px;
+
+  padding: 11px 13px;
+
+  background: var(--surface-soft);
+
+  border-left: 3px solid var(--sage);
+  border-radius: 7px;
+
+  color: #d9e8d8;
+
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+
+/* ==============================================
+   23. WIKIPEDIA ATTRACTIONS
+============================================== */
+
+.attractions-intro {
+  margin-bottom: 7px;
+}
+
+#attractionsList {
+  display: flex;
+  flex-direction: column;
+
+  gap: 11px;
+
+  margin-top: 14px;
+}
+
+.attraction-item {
+  padding: 16px;
+
+  border: 1px solid var(--line);
+  border-radius: 11px;
+
+  background: var(--surface);
+}
+
+.attraction-item h4 {
+  margin-bottom: 7px;
+
+  color: var(--text);
+
+  font-size: 13px;
+}
+
+.attraction-item p {
+  margin-bottom: 13px;
+
+  color: var(--muted);
+
+  font-size: 11px;
+  line-height: 1.75;
+
+  overflow-wrap: anywhere;
+}
+
+.attraction-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 9px 13px;
+
+  font-size: 11px;
+}
+
+
+/* ==============================================
+   24. BUDGET CALCULATOR
+============================================== */
+
+.budget-note {
+  margin-bottom: 16px;
+}
+
+.budget-section label {
+  margin: 14px 0 8px;
+}
+
+.budget-section input,
+.budget-section select {
+  font-size: 12px;
+}
+
+.budget-fields {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 12px;
+}
+
+#packageIncludes {
+  margin-top: 9px;
+
+  color: var(--subtle);
+
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.calculate-btn {
+  display: block;
+
+  width: 100%;
+
+  margin-top: 19px;
+  padding: 12px 14px;
+
+  font-size: 12px;
+}
+
+#budgetMessage {
+  margin-top: 10px;
+
+  color: var(--danger);
+
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+
+/* ==============================================
+   25. BUDGET RESULT
+============================================== */
+
+#budgetResult {
+  margin-top: 17px;
+
+  padding: 18px;
+
+  border: 1px solid var(--line);
+  border-radius: 11px;
+
+  background: var(--surface-soft);
+}
+
+.budget-line {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+
+  gap: 12px;
+
+  margin-bottom: 11px;
+
+  color: var(--muted);
+
+  font-size: 12px;
+}
+
+.budget-line strong {
+  color: var(--text);
+
+  text-align: right;
+  white-space: nowrap;
+}
+
+.total-line {
+  margin-top: 12px;
+  padding-top: 14px;
+
+  border-top: 1px solid #49644e;
+
+  color: var(--text);
+
+  font-weight: 700;
+}
+
+#perPersonTotal {
+  margin-top: 10px;
+
+  color: var(--sage);
+
+  font-size: 11px;
+}
+
+#continueToPlan {
+  margin-top: 16px;
+
+  background: var(--sage-bright);
+}
+
+#continueToPlan:hover {
+  background: #edf4e6;
+}
+
+
+/* ==============================================
+   26. MY TRAVEL PLANS PAGE
+============================================== */
+
+.plans-page {
+  min-height: 710px;
+
+  padding: 36px 38px 45px;
+
+  background: #101b15;
+}
+
+.plans-heading {
+  margin-bottom: 28px;
+}
+
+.plans-heading h1 {
+  margin: 7px 0 5px;
+
+  color: var(--text);
+
+  font-size: 29px;
+  letter-spacing: -0.6px;
+  line-height: 1.25;
+}
+
+.plans-heading p {
+  color: var(--muted);
+
+  font-size: 12px;
+}
+
+
+/* ==============================================
+   27. TRAVEL PLANS TWO-COLUMN LAYOUT
+============================================== */
+
+.plans-layout {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  align-items: start;
+
+  gap: 22px;
+}
+
+.plan-form-box,
+.saved-plans-box {
+  min-width: 0;
+
+  padding: 24px;
+
+  border: 1px solid var(--line);
+  border-radius: 14px;
+
+  background: #17271d;
+
+  box-shadow:
+    0 12px 28px rgba(0, 0, 0, 0.13);
+}
+
+.plan-form-box h2,
+.saved-plans-box h2 {
+  margin-bottom: 20px;
+
+  color: var(--text);
+
+  font-size: 18px;
+}
+
+
+/* ==============================================
+   28. PLAN A TRIP FORM
+============================================== */
+
+#planForm label {
+  margin: 15px 0 8px;
+}
+
+#planForm input,
+#planForm select,
+#planForm textarea {
+  font-size: 12px;
+}
+
+#planForm textarea {
+  min-height: 92px;
+
+  resize: vertical;
+
+  line-height: 1.65;
+}
+
+#planForm #planBudget[readonly] {
+  background: #263c2c;
+
+  border-color: #527156;
+
+  color: var(--sage-bright);
+
+  font-size: 14px;
+  font-weight: 800;
+
+  cursor: default;
+}
+
+.budget-auto-note {
+  margin-top: 8px;
+
+  color: var(--subtle);
+
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+
+/* ==============================================
+   29. SAVE AND CANCEL BUTTONS
+============================================== */
+
+#savePlanBtn {
+  width: 100%;
+
+  margin-top: 22px;
+  padding: 13px;
+
+  font-size: 12px;
+}
+
+#cancelEditBtn {
+  width: 100%;
+
+  margin-top: 10px;
+  padding: 12px;
+
+  border-radius: 9px;
+  border: 1px solid #47634c;
+
+  background: #263d2c;
+
+  color: var(--text);
+
+  font-size: 12px;
+  font-weight: 700;
+}
+
+#cancelEditBtn:hover {
+  background: #304a36;
+}
+
+#planMessage {
+  margin-top: 12px;
+
+  color: var(--sage-bright);
+
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+
+/* ==============================================
+   30. SAVED TRIPS SECTION
+============================================== */
+
+.saved-subtitle {
+  margin: -5px 0 20px;
+
+  color: var(--muted);
+
+  font-size: 12px;
+}
+
+#savedPlansList {
+  display: flex;
+  flex-direction: column;
+
+  gap: 16px;
+}
+
+.empty-plans {
+  padding: 32px 18px;
+
+  border-radius: 10px;
+  border: 1px solid var(--line-soft);
+
+  background: var(--surface);
+
+  color: var(--muted);
+
+  text-align: center;
+
+  font-size: 12px;
+}
+
+
+/* ==============================================
+   31. SAVED TRIP PHOTO CARDS
+============================================== */
+
+.saved-plan-card {
+  overflow: hidden;
+
+  padding: 0;
+
+  background: var(--surface);
+
+  border: 1px solid var(--line);
+  border-radius: 12px;
+
+  transition:
+    transform 0.25s,
+    border-color 0.25s,
+    box-shadow 0.25s;
+}
+
+.saved-plan-card:hover {
+  transform: translateY(-3px);
+
+  border-color: #67856b;
+
+  box-shadow: var(--shadow);
+}
+
+.saved-plan-image-wrap {
+  position: relative;
+
+  width: 100%;
+  height: 182px;
+
+  overflow: hidden;
+
+  background: var(--surface-soft);
+}
+
+.saved-plan-image {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  transition: transform 0.45s;
+}
+
+.saved-plan-card:hover .saved-plan-image {
+  transform: scale(1.04);
+}
+
+
+/* ==============================================
+   32. GRADIENT OVER SAVED TRIP IMAGE
+============================================== */
+
+.saved-plan-image-overlay {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  padding: 18px;
+
+  background: linear-gradient(
+    to top,
+    rgba(5, 14, 8, 0.9),
+    rgba(5, 14, 8, 0.1) 75%
+  );
+}
+
+.saved-plan-category {
+  margin-bottom: 4px;
+
+  color: #cbe3c5;
+
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+
+  text-transform: uppercase;
+}
+
+.saved-plan-image-overlay h3 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: 22px;
+  line-height: 1.25;
+
+  text-shadow:
+    0 3px 12px rgba(0, 0, 0, 0.4);
+}
+
+
+/* ==============================================
+   33. SAVED TRIP INFORMATION
+============================================== */
+
+.saved-plan-body {
+  padding: 18px;
+}
+
+.saved-plan-card p {
+  margin-bottom: 9px;
+
+  color: var(--muted);
+
+  font-size: 11px;
+  line-height: 1.7;
+
+  overflow-wrap: anywhere;
+}
+
+.saved-plan-body .saved-plan-budget {
+  color: var(--sage-bright);
+
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.saved-plan-body .saved-plan-notes {
+  color: #9fb2a1;
+}
+
+
+/* ==============================================
+   34. EDIT AND DELETE BUTTONS
+============================================== */
+
+.plan-actions {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  margin-top: 16px;
+}
+
+.plan-actions button {
+  flex: 1;
+  min-width: 0;
+
+  padding: 11px 12px;
+
+  border: 0;
+  border-radius: 8px;
+
+  font-size: 11px;
+  font-weight: 750;
+
+  transition:
+    background 0.2s,
+    transform 0.2s;
+}
+
+.delete-plan-btn {
+  background: #422b29;
+
+  color: #f4c5bd;
+}
+
+.delete-plan-btn:hover {
+  background: #573633;
+}
+
+
+/* ==============================================
+   35. RESPONSIVE — MEDIUM WINDOWS
+============================================== */
+
+@media (max-width: 1100px) {
+
+  .app {
+    width: calc(100% - 24px);
+    margin: 12px auto;
+  }
+
+  .content {
+    padding: 27px;
+  }
+
+  .card-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .hero-slider {
+    height: 265px;
+  }
+
+}
+
+
+/* ==============================================
+   36. RESPONSIVE — SMALLER WINDOWS
+============================================== */
+
+@media (max-width: 800px) {
+
+  .header {
+    padding: 15px 22px;
+  }
+
+  .layout {
+    grid-template-columns:
+      205px minmax(0, 1fr);
+  }
+
+  .sidebar {
+    padding: 26px 18px;
+  }
+
+  .content {
+    padding: 24px;
+  }
+
+  .plans-page {
+    padding: 28px;
+  }
+
+  .plans-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-slider {
+    height: 225px;
+  }
+
+  .hero-slider .hero-caption {
+    left: 27px;
+    bottom: 28px;
+  }
+
+}
+
+
+/* ==============================================
+   37. RESPONSIVE — MOBILE
+============================================== */
+
+@media (max-width: 650px) {
+
+  .app {
+    width: 100%;
+    min-height: 100vh;
+
+    margin: 0;
+
+    border: 0;
+    border-radius: 0;
+  }
+
+  .header {
+    flex-wrap: wrap;
+    justify-content: center;
+
+    gap: 12px;
+  }
+
+  .header nav {
+    order: 3;
+
+    width: 100%;
+    gap: 25px;
+  }
+
+  .country {
+    margin-left: auto;
+  }
+
+  .layout {
+    display: block;
+  }
+
+  .sidebar {
+    border-right: 0;
+    border-bottom: 1px solid var(--line-soft);
+
+    padding: 22px;
+  }
+
+  .sidebar-footer {
+    padding-top: 26px;
+  }
+
+  .content {
+    padding: 20px;
+  }
+
+  .hero-slider {
+    height: 215px;
+    border-radius: 12px;
+  }
+
+  .hero-slider .hero-caption {
+    left: 21px;
+    bottom: 24px;
+
+    max-width: 85%;
+  }
+
+  .hero-slider .hero-caption h2 {
+    font-size: 21px;
+  }
+
+  .hero-slider .hero-caption p {
+    font-size: 11px;
+  }
+
+  .section-header {
+    align-items: stretch;
+    flex-direction: column;
+
+    gap: 12px;
+  }
+
+  #searchInput {
+    max-width: none;
+  }
+
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card img {
+    height: 195px;
+  }
+
+  .plans-page {
+    padding: 25px 20px;
+  }
+
+  .plan-form-box,
+  .saved-plans-box {
+    padding: 20px;
+  }
+
+  .modal-overlay {
+    padding: 10px;
+  }
+
+  .details-modal {
+    max-height: 94vh;
+  }
+
+  .modal-content {
+    padding: 21px;
+  }
+
+  .weather-grid {
+    gap: 6px;
+  }
+
+  .weather-box {
+    padding: 12px 5px;
+  }
+
+}
+
+
+/* ==============================================
+   38. REDUCED MOTION SUPPORT
+============================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+
+}
+
+/* ==============================================
+   END OF JOMJALAN STYLE.CSS
+============================================== */

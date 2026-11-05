@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    http-equiv="Content-Security-Policy"
+    content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src https://api.open-meteo.com https://en.wikipedia.org;">
+
+  <title>JomJalan Malaysia</title>
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="tours.css">
+
+  <script src="renderer.js" defer></script>
+  <script src="tours.js" defer></script>
+</head>
+
+<body>
+
+  <div class="app">
+
+    <!-- ==================================
+         TOP NAVIGATION
+    ================================== -->
+
+    <header class="header">
+
+      <div class="logo">
+        <h2>jom<span>jalan.</span></h2>
+        <small>EXPLORE MALAYSIA</small>
+      </div>
+
+      <nav>
+        <button type="button" id="navExplore" class="active">
+          Explore
+        </button>
+
+        <button type="button" id="navPlans">
+          My Travel Plans
+        </button>
+      </nav>
+
+      <div class="country">MALAYSIA</div>
+
+    </header>
+
+
+    <!-- ==================================
+         PAGE 1 - EXPLORE MALAYSIA
+    ================================== -->
+
+    <div class="layout">
+
+      <!-- LEFT SIDEBAR -->
+      <aside class="sidebar">
+
+        <h3>Filter Destinations</h3>
+        <p>Find somewhere to go.</p>
+
+        <label for="stateFilter">State</label>
+
+        <select id="stateFilter">
+          <option value="all">All States</option>
+          <option value="Kedah">Kedah</option>
+          <option value="Pahang">Pahang</option>
+          <option value="Penang">Penang</option>
+        </select>
+
+        <label for="typeFilter">Travel Type</label>
+
+        <select id="typeFilter">
+          <option value="all">All Types</option>
+          <option value="Beach">Beach</option>
+          <option value="Nature">Nature</option>
+          <option value="Heritage">Heritage</option>
+        </select>
+
+        <div class="sidebar-note">
+          <strong>Travel tip</strong>
+          <p>Check the weather before planning your trip.</p>
+        </div>
+
+
+        <!-- SIDEBAR FOOTER -->
+        <div class="sidebar-footer">
+
+          <div class="social-links">
+
+            <!-- GITHUB -->
+            <a href="https://github.com/YOUR_GITHUB_USERNAME"
+               class="social-icon"
+               target="_blank"
+               rel="noopener noreferrer"
+               title="GitHub"
+               aria-label="GitHub">
+
+              <svg viewBox="0 0 24 24"
+                   width="19"
+                   height="19"
+                   fill="currentColor"
+                   aria-hidden="true">
+
+                <path d="M12 .297a12 12 0 0 0-3.793 23.386c.6.111.82-.261.82-.577v-2.04c-3.338.726-4.043-1.416-4.043-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.775.418-1.305.762-1.605-2.665-.304-5.467-1.333-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.536-1.524.118-3.176 0 0 1.008-.323 3.301 1.23a11.53 11.53 0 0 1 6.006 0c2.291-1.553 3.297-1.23 3.297-1.23.656 1.652.244 2.873.12 3.176.77.84 1.235 1.91 1.235 3.221 0 4.61-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.216.694.825.576A12.001 12.001 0 0 0 12 .297z"/>
+
+              </svg>
+
+            </a>
+
+
+            <!-- INSTAGRAM -->
+            <a href="https://instagram.com/adxmzn"
+               class="social-icon"
+               target="_blank"
+               rel="noopener noreferrer"
+               title="Instagram"
+               aria-label="Instagram">
+
+              <svg viewBox="0 0 24 24"
+                   width="19"
+                   height="19"
+                   fill="none"
+                   stroke="currentColor"
+                   stroke-width="2"
+                   stroke-linecap="round"
+                   stroke-linejoin="round"
+                   aria-hidden="true">
+
+                <rect x="2" y="2"
+                      width="20" height="20"
+                      rx="5"/>
+
+                <circle cx="12" cy="12" r="4"/>
+
+                <circle cx="17.5" cy="6.5"
+                        r="1"
+                        fill="currentColor"
+                        stroke="none"/>
+
+              </svg>
+
+            </a>
+
+          </div>
+
+          <p class="copyright-text">
+            <span>© 2026 COPYRIGHT</span>
+            <span class="copyright-name">ADAM ZAFRAN</span>
+          </p>
+
+        </div>
+        <!-- END SIDEBAR FOOTER -->
+
+      </aside>
+
+
+      <!-- MAIN CONTENT -->
+      <main class="content">
+
+
+<!-- =====================================
+     JOMJALAN IMAGE SLIDER WITH CAPTIONS
+===================================== -->
+
+<section class="hero-slider"
+         id="destinationSlider"
+         aria-label="Featured Malaysia destinations"
+         tabindex="0">
+
+  <div class="hero-slider-track" id="heroSliderTrack">
+
+    <!-- LANGKAWI -->
+    <div class="hero-slide">
+      <img src="images/langkawi.jpg"
+           alt="Beautiful beach in Langkawi"
+           draggable="false">
+
+      <div class="hero-caption">
+        <span>EXPLORE MALAYSIA</span>
+        <h2>Escape to Langkawi</h2>
+        <p>Your island getaway starts here.</p>
+      </div>
+    </div>
+
+    <!-- CAMERON HIGHLANDS -->
+    <div class="hero-slide">
+      <img src="images/cameron.jpg"
+           alt="Cameron Highlands tea plantations"
+           draggable="false">
+
+      <div class="hero-caption">
+        <span>EXPLORE MALAYSIA</span>
+        <h2>Discover Cameron Highlands</h2>
+        <p>Fresh air, green hills and peaceful views.</p>
+      </div>
+    </div>
+
+    <!-- SABAH -->
+    <div class="hero-slide">
+      <img src="images/sabah.jpg"
+           alt="Beautiful islands in Sabah"
+           draggable="false">
+
+      <div class="hero-caption">
+        <span>EXPLORE MALAYSIA</span>
+        <h2>Adventure Awaits in Sabah</h2>
+        <p>Beautiful islands and unforgettable views.</p>
+      </div>
+    </div>
+
+    <!-- MELAKA -->
+    <div class="hero-slide">
+      <img src="images/melaka.jpg"
+           alt="Historic city of Melaka"
+           draggable="false">
+
+      <div class="hero-caption">
+        <span>EXPLORE MALAYSIA</span>
+        <h2>Fall in Love with Melaka</h2>
+        <p>A little journey through history.</p>
+      </div>
+    </div>
+
+    <!-- KUALA LUMPUR -->
+    <div class="hero-slide">
+      <img src="images/kualalumpur.jpg"
+           alt="Kuala Lumpur city skyline"
+           draggable="false">
+
+      <div class="hero-caption">
+        <span>EXPLORE MALAYSIA</span>
+        <h2>Explore Kuala Lumpur</h2>
+        <p>City lights and endless discoveries.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- LEFT ARROW -->
+  <button type="button"
+          class="hero-arrow hero-prev"
+          id="heroPrev"
+          aria-label="Previous image">
+    &#10094;
+  </button>
+
+  <!-- RIGHT ARROW -->
+  <button type="button"
+          class="hero-arrow hero-next"
+          id="heroNext"
+          aria-label="Next image">
+    &#10095;
+  </button>
+
+  <!-- NAVIGATION DOTS -->
+  <div class="hero-dots" id="heroDots">
+
+    <button type="button"
+            class="hero-dot active"
+            aria-label="Show Langkawi"></button>
+
+    <button type="button"
+            class="hero-dot"
+            aria-label="Show Cameron Highlands"></button>
+
+    <button type="button"
+            class="hero-dot"
+            aria-label="Show Sabah"></button>
+
+    <button type="button"
+            class="hero-dot"
+            aria-label="Show Melaka"></button>
+
+    <button type="button"
+            class="hero-dot"
+            aria-label="Show Kuala Lumpur"></button>
+
+  </div>
+
+</section>
+<!-- END HERO SLIDER -->
+
+
+        <!-- POPULAR DESTINATIONS -->
+        <section class="destinations">
+
+          <div class="section-header">
+
+            <div>
+              <span class="eyebrow">EXPLORE</span>
+              <h2>Popular Destinations</h2>
+            </div>
+
+            <input
+              type="search"
+              id="searchInput"
+              placeholder="Search destination...">
+
+          </div>
+
+          <p id="resultCount">3 destinations</p>
+
+
+          <div class="card-grid">
+
+            <!-- LANGKAWI -->
+            <article class="card"
+                     data-state="Kedah"
+                     data-type="Beach">
+
+              <img src="images/langkawi.jpg"
+                   alt="Langkawi beach">
+
+              <div class="card-info">
+
+                <small>KEDAH · BEACH</small>
+                <h3>Langkawi</h3>
+
+                <p>
+                  Island hopping, beaches and relaxing sunsets.
+                </p>
+
+                <button type="button"
+                        class="details-btn"
+                        data-destination="langkawi">
+                  View Details
+                </button>
+
+              </div>
+
+            </article>
+
+
+            <!-- CAMERON HIGHLANDS -->
+            <article class="card"
+                     data-state="Pahang"
+                     data-type="Nature">
+
+              <img src="images/cameron.jpg"
+                   alt="Cameron Highlands">
+
+              <div class="card-info">
+
+                <small>PAHANG · NATURE</small>
+                <h3>Cameron Highlands</h3>
+
+                <p>
+                  Tea plantations, cool weather and scenic hills.
+                </p>
+
+                <button type="button"
+                        class="details-btn"
+                        data-destination="cameron">
+                  View Details
+                </button>
+
+              </div>
+
+            </article>
+
+
+            <!-- GEORGE TOWN -->
+            <article class="card"
+                     data-state="Penang"
+                     data-type="Heritage">
+
+              <img src="images/penang.jpg"
+                   alt="George Town">
+
+              <div class="card-info">
+
+                <small>PENANG · HERITAGE</small>
+                <h3>George Town</h3>
+
+                <p>
+                  Heritage streets, local food and cultural spots.
+                </p>
+
+                <button type="button"
+                        class="details-btn"
+                        data-destination="penang">
+                  View Details
+                </button>
+
+              </div>
+
+            </article>
+
+          </div>
+
+          <p id="noResults" hidden>
+            No destinations found. Try another search.
+          </p>
+
+        </section>
+
+      </main>
+
+    </div>
+    <!-- END EXPLORE PAGE -->
+
+
+    <!-- ==================================
+         PAGE 2 - MY TRAVEL PLANS
+    ================================== -->
+
+    <section class="plans-page" id="plansPage" hidden>
+
+      <div class="plans-heading">
+
+        <span class="eyebrow">YOUR NEXT ADVENTURE</span>
+
+        <h1>My Travel Plans</h1>
+
+        <p>
+          Keep your Malaysia trips organised in one place.
+        </p>
+
+      </div>
+
+
+      <div class="plans-layout">
+
+        <!-- CREATE / EDIT TRAVEL PLAN -->
+        <div class="plan-form-box">
+
+          <h2 id="planFormTitle">Plan a Trip</h2>
+
+          <form id="planForm">
+
+            <!-- DESTINATION -->
+            <label for="planDestination">
+              Destination
+            </label>
+
+            <select id="planDestination" required>
+              <option value="">Select Destination</option>
+              <option value="langkawi">Langkawi</option>
+              <option value="cameron">Cameron Highlands</option>
+              <option value="penang">George Town</option>
+            </select>
+
+
+            <!-- TRAVEL DATE -->
+            <label for="planDate">
+              Travel Date
+            </label>
+
+            <input type="date"
+                   id="planDate"
+                   required>
+
+
+            <!-- NUMBER OF DAYS -->
+            <label for="planDays">
+              Number of Days
+            </label>
+
+            <input type="number"
+                   id="planDays"
+                   min="1"
+                   max="30"
+                   value="3"
+                   required>
+
+
+            <!-- NUMBER OF TRAVELLERS -->
+            <label for="planPeople">
+              Travellers
+            </label>
+
+            <input type="number"
+                   id="planPeople"
+                   min="1"
+                   max="20"
+                   value="2"
+                   required>
+
+
+            <!-- TRAVEL PACKAGE -->
+            <label for="planPackage">
+              Travel Package
+            </label>
+
+            <select id="planPackage" required>
+              <option value="">Select a package</option>
+            </select>
+
+
+            <!-- TRANSPORT COST -->
+            <label for="planTransport">
+              Transport Cost per Person (RM)
+            </label>
+
+            <input type="number"
+                   id="planTransport"
+                   min="0"
+                   step="0.01"
+                   value="100"
+                   required>
+
+
+            <!-- AUTOMATIC ESTIMATED BUDGET -->
+            <label for="planBudget">
+              Estimated Budget (RM)
+            </label>
+
+            <input type="number"
+                   id="planBudget"
+                   min="0"
+                   step="0.01"
+                   placeholder="Calculated automatically"
+                   readonly>
+
+            <p class="budget-auto-note">
+              Budget is automatically calculated based on
+              package, days, travellers and transport.
+            </p>
+
+
+            <!-- TRAVEL NOTES -->
+            <label for="planNotes">
+              Travel Notes
+            </label>
+
+            <textarea
+              id="planNotes"
+              rows="3"
+              placeholder="Places to visit, activities..."></textarea>
+
+
+            <!-- SAVE / UPDATE BUTTON -->
+            <button type="submit"
+                    id="savePlanBtn">
+              Save Travel Plan
+            </button>
+
+
+            <!-- CANCEL EDIT BUTTON -->
+            <button type="button"
+                    id="cancelEditBtn"
+                    hidden>
+              Cancel Edit
+            </button>
+
+
+            <!-- FORM FEEDBACK -->
+            <p id="planMessage" role="status"></p>
+
+          </form>
+
+        </div>
+
+
+        <!-- SAVED TRAVEL PLANS -->
+        <div class="saved-plans-box">
+
+          <h2>Saved Trips</h2>
+
+          <p class="saved-subtitle">
+            Your upcoming Malaysia adventures.
+          </p>
+
+          <div id="savedPlansList">
+
+            <p class="empty-plans">
+              No travel plans yet.
+              Start planning your first trip!
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+    <!-- END MY TRAVEL PLANS -->
+
+  </div>
+  <!-- END APP -->
+
+
+  <!-- ==================================
+       DESTINATION DETAILS POPUP
+  ================================== -->
+
+  <div class="modal-overlay"
+       id="detailsModal"
+       hidden>
+
+    <div class="details-modal"
+         role="dialog"
+         aria-modal="true"
+         aria-labelledby="modalTitle">
+
+      <!-- CLOSE POPUP -->
+      <button type="button"
+              class="close-modal"
+              id="closeModal"
+              aria-label="Close details">
+        &times;
+      </button>
+
+
+      <!-- DESTINATION PHOTO -->
+      <img id="modalImage"
+           src=""
+           alt="Destination photo"
+           class="modal-image">
+
+
+      <div class="modal-content">
+
+        <!-- DESTINATION INFORMATION -->
+        <small id="modalCategory"></small>
+
+        <h2 id="modalTitle"></h2>
+
+        <p id="modalDescription"></p>
+
+
+        <!-- ==================================
+             CURRENT WEATHER
+        ================================== -->
+
+        <div class="weather-section">
+
+          <h3>Current Weather</h3>
+
+          <p id="weatherStatus" aria-live="polite">
+            Loading weather...
+          </p>
+
+
+          <!-- WEATHER DATA -->
+          <div class="weather-grid"
+               id="weatherData"
+               hidden>
+
+            <div class="weather-box">
+              <span>Temperature</span>
+              <strong id="temperature">--</strong>
+            </div>
+
+            <div class="weather-box">
+              <span>Humidity</span>
+              <strong id="humidity">--</strong>
+            </div>
+
+            <div class="weather-box">
+              <span>Wind Speed</span>
+              <strong id="windSpeed">--</strong>
+            </div>
+
+          </div>
+
+
+          <p id="weatherCondition"></p>
+
+          <small class="weather-credit">
+            Weather data: Open-Meteo (open-meteo.com)
+          </small>
+
+
+          <!-- ==================================
+               ACTIVITY SUGGESTIONS
+          ================================== -->
+
+          <div class="activity-section"
+               id="activitySection"
+               hidden>
+
+            <h3>Suggested Activities</h3>
+
+            <p id="activityReason"></p>
+
+            <ul id="activityList"></ul>
+
+            <small class="activity-note">
+              Suggestions are based on current weather.
+              Check local conditions before travelling.
+            </small>
+
+          </div>
+
+        </div>
+        <!-- END WEATHER SECTION -->
+
+        <!-- REAL TRAVEL INFORMATION -->
+        <section class="attractions-section">
+
+          <h3>Places Worth Exploring</h3>
+
+          <p class="attractions-intro">
+             Explore places around your selected destination.
+          </p>
+
+          <p id="attractionsStatus">
+            Loading nearby places...
+          </p>
+
+          <div id="attractionsList"></div>
+
+          <small class="attractions-credit">
+            Travel information from Wikipedia.
+          </small>
+        
+        </section>
+
+        <!-- ==================================
+             TRAVEL PACKAGE & BUDGET
+        ================================== -->
+
+        <section class="budget-section">
+
+          <h3>Travel Packages & Budget</h3>
+
+          <p class="budget-note">
+            Choose a sample package and estimate your trip cost.
+            Prices are estimates, not actual booking offers.
+          </p>
+
+
+          <!-- PACKAGE SELECTION -->
+          <label for="packageSelect">
+            Travel Package
+          </label>
+
+          <select id="packageSelect">
+            <option value="">Select a package</option>
+          </select>
+
+          <p id="packageIncludes"></p>
+
+
+          <!-- DAYS AND TRAVELLERS -->
+          <div class="budget-fields">
+
+            <div>
+
+              <label for="tripDays">
+                Number of Days
+              </label>
+
+              <input type="number"
+                     id="tripDays"
+                     min="1"
+                     max="30"
+                     value="3">
+
+            </div>
+
+            <div>
+
+              <label for="travellers">
+                Travellers
+              </label>
+
+              <input type="number"
+                     id="travellers"
+                     min="1"
+                     max="20"
+                     value="2">
+
+            </div>
+
+          </div>
+
+
+          <!-- TRANSPORT COST -->
+          <label for="transportCost">
+            Transport Cost per Person (RM)
+          </label>
+
+          <input type="number"
+                 id="transportCost"
+                 min="0"
+                 step="0.01"
+                 value="100">
+
+
+          <!-- CALCULATE BUTTON -->
+          <button type="button"
+                  id="calculateBudget"
+                  class="calculate-btn">
+            Calculate Budget
+          </button>
+
+
+          <!-- CALCULATOR FEEDBACK -->
+          <p id="budgetMessage" role="status"></p>
+
+
+          <!-- CALCULATION RESULT -->
+          <div id="budgetResult" hidden>
+
+            <div class="budget-line">
+
+              <span>Package total</span>
+
+              <strong id="packageTotal">
+                RM 0.00
+              </strong>
+
+            </div>
+
+
+            <div class="budget-line">
+
+              <span>Transport total</span>
+
+              <strong id="transportTotal">
+                RM 0.00
+              </strong>
+
+            </div>
+
+
+            <div class="budget-line total-line">
+
+              <span>Estimated Total</span>
+
+              <strong id="estimatedTotal">
+                RM 0.00
+              </strong>
+
+            </div>
+
+
+            <p id="perPersonTotal"></p>
+
+
+            <!-- CONTINUE TO TRAVEL PLANS -->
+            <button type="button"
+                    id="continueToPlan"
+                    class="calculate-btn">
+              Continue to My Travel Plans
+            </button>
+
+          </div>
+          <!-- END CALCULATION RESULT -->
+
+        </section>
+        <!-- END BUDGET CALCULATOR -->
+
+      </div>
+      <!-- END MODAL CONTENT -->
+
+    </div>
+    <!-- END DETAILS MODAL -->
+
+  </div>
+  <!-- END MODAL OVERLAY -->
+
+</body>
+</html>

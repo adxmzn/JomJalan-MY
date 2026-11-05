@@ -1,0 +1,15 @@
+{
+  "name": "jomjalan1",
+  "version": "1.0.0",
+  "description": "JomJalan Malaysia Travel Desktop Application",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^45.2.2"
+  }
+}
